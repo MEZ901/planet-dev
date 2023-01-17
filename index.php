@@ -6,17 +6,17 @@
         <div class="max-w-md">
             <h1 class="mb-5 text-5xl font-bold">Planet DEV</h1>
             <p class="mb-5">Stay ahead of the curve by reading the latest tech news on our website, where we bring you the most cutting-edge information on the industry.</p>
-            <label for="my-modal-3" class="btn btn-primary">Get started</label>
+            <label for="auth" class="btn btn-primary">Get started</label>
         </div>
     </div>
 </div>
 
-<input type="checkbox" id="my-modal-3" class="modal-toggle" />
+<input type="checkbox" id="auth" class="modal-toggle" />
 <div class="modal">
   <div class="modal-box relative">
-    <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+    <label for="auth" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
     <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-        <h1 class="text-xl font-bold leading-tight tracking-tight md:text-2xl text-white">
+        <h1 id="header" class="text-xl font-bold leading-tight tracking-tight md:text-2xl text-white">
             Login
         </h1>
         <!-- login -->
