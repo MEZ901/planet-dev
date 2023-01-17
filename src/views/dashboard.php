@@ -102,9 +102,9 @@
       </form>
     </div>
     <div class="float-right my-5">
-      <button class="btn btn-outline my-1">Add another article</button>
-      <button class="btn btn-outline btn-error my-1" hidden>remove article field</button>
-      <button class="btn btn-outline btn-success my-1">Save</button>
+      <button id="add-field" class="btn btn-outline my-1">Add another article</button>
+      <button id="remove-field" class="btn btn-outline btn-error my-1" hidden>remove article field</button>
+      <button id="save-article" class="btn btn-outline btn-success my-1">Save</button>
     </div>
   </div>
 </div>
