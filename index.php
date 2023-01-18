@@ -1,4 +1,6 @@
-<?php include('./src/includes/header.php') ?>
+<?php
+include('./src/core/header.php');
+?>
 
 <div class="hero min-h-screen" style="background-image: url('https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=847&q=80');">
     <div class="hero-overlay bg-opacity-60"></div>
@@ -69,4 +71,4 @@
   </div>
 </div>
 
-<?php include('./src/includes/footer.php') ?>
+<?php include('./src/core/footer.php') ?>

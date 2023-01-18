@@ -1,4 +1,7 @@
-<?php  DEBUG ? ini_set('display_errors', 1) : ini_set('display_errors', 0); ?>
+<?php
+include('init.php');
+DEBUG ? ini_set('display_errors', 1) : ini_set('display_errors', 0);
+?>
 
 <!DOCTYPE html>
 <html lang="en">

@@ -1,4 +1,4 @@
-<?php include('../includes/header.php') ?>
+<?php include('../core/header.php') ?>
 
 <div class="navbar bg-base-100">
   <div class="navbar-start">
@@ -118,4 +118,4 @@
   </button>
 </div>
 
-<?php include('../includes/footer.php') ?>
+<?php include('../core/footer.php') ?>
