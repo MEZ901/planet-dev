@@ -15,11 +15,15 @@ const login = () => {
 const stats = () => {
     document.getElementById("stats_btn").classList.add("active");
     document.getElementById("dashboard_btn").classList.remove("active");
+    document.getElementById("dashboard").style.opacity = "0";
+    document.getElementById("stats").style.opacity = "1";
 }
 
 const dashboard = () => {
     document.getElementById("dashboard_btn").classList.add("active");
     document.getElementById("stats_btn").classList.remove("active");
+    document.getElementById("stats").style.opacity = "0";
+    document.getElementById("dashboard").style.opacity = "1";
 }
 
 const addField = () => {
@@ -68,20 +72,20 @@ const resetForm = () => {
 }
 
 new Chart(document.getElementById('myChart'), {
-type: 'line',
-data: {
-    labels: ['13/01', '14/01', '15/01', '16/01', '17/01', '18/01'],
-    datasets: [{
-    label: 'Number of articles published in a day',
-    data: [13, 10, 12, 5, 6, 1],
-    borderWidth: 1
-    }]
-},
-options: {
-    scales: {
-    y: {
-        beginAtZero: true
+    type: 'line',
+    data: {
+        labels: ['13/01', '14/01', '15/01', '16/01', '17/01', '18/01'],
+        datasets: [{
+        label: 'Number of articles published in a day',
+        data: [13, 10, 12, 5, 6, 1],
+        borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+        y: {
+            beginAtZero: true
+        }
+        }
     }
-    }
-}
 });
