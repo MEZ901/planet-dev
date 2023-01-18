@@ -25,13 +25,13 @@ include('./src/core/header.php');
         <form id="login" class="space-y-4 md:space-y-6" action="#">
             <div>
                 <label for="email" class="block mb-2 text-sm font-medium text-white">Your email</label>
-                <input type="email" name="email" id="login-email" class="border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="name@gmail.com" required="">
+                <input type="email" name="email" id="login-email" onkeyup="loginChecker()" class="border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="name@gmail.com" required="">
             </div>
             <div>
                 <label for="password" class="block mb-2 text-sm font-medium text-white">Password</label>
-                <input type="password" name="password" id="login-password" placeholder="••••••••" class="border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" required="">
+                <input type="password" name="password" id="login-password" onkeyup="loginChecker()" placeholder="••••••••" class="border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" required="">
             </div>
-            <button type="submit" class="w-full btn btn-primary" onClick="window.location.href='./src/views/dashboard.php'">Login</button>
+            <button type="button" name="login" class="w-full btn btn-primary" onClick="window.location.href='./src/views/dashboard.php'" disabled>Login</button>
             <p class="text-sm font-light text-gray-400">
                 Don't have an account? <a href="#" onClick="signUp()" class="font-medium hover:underline text-primary-500">Sign up here</a>
             </p>
@@ -62,7 +62,7 @@ include('./src/core/header.php');
                     <label for="terms" class="font-light text-gray-300">I accept the <a class="font-medium hover:underline text-primary-500" href="#">Terms and Conditions</a></label>
                 </div>
             </div>
-            <button type="submit" class="w-full btn btn-primary">Create an account</button>
+            <button type="button" class="w-full btn btn-primary">Create an account</button>
             <p class="text-sm font-light text-gray-400">
                 Already have an account? <a href="#" onClick="login()" class="font-medium hover:underline text-primary-500">Login here</a>
             </p>

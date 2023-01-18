@@ -1,4 +1,23 @@
 let articleCount = 1;
+let mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+if (typeof document.getElementById("login") !== "undefined") {
+
+    const email = document.querySelector("#login-email");
+    const password = document.querySelector("#login-password");
+    const loginBtn = document.querySelector("[name='login']");
+  
+    function loginChecker() {
+      if (email.value.match(mailFormat) && password.value != "") {
+        loginBtn.removeAttribute("disabled");
+      } else {
+        loginBtn.setAttribute("disabled", "");
+      }
+      if (email.value == "") {
+        loginBtn.setAttribute("disabled", "");
+      }
+    }
+}
 
 const signUp = () => {
     document.getElementById("header").innerText = "Sign up";
@@ -71,21 +90,23 @@ const resetForm = () => {
     document.getElementById('add-article-1').reset();
 }
 
-new Chart(document.getElementById('myChart'), {
-    type: 'line',
-    data: {
-        labels: ['13/01', '14/01', '15/01', '16/01', '17/01', '18/01'],
-        datasets: [{
-        label: 'Number of articles published in a day',
-        data: [13, 10, 12, 5, 6, 1],
-        borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-        y: {
-            beginAtZero: true
+if(document.getElementById('stats') != null){
+    new Chart(document.getElementById('myChart'), {
+        type: 'line',
+        data: {
+            labels: ['13/01', '14/01', '15/01', '16/01', '17/01', '18/01'],
+            datasets: [{
+            label: 'Number of articles published in a day',
+            data: [13, 10, 12, 5, 6, 1],
+            borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+            y: {
+                beginAtZero: true
+            }
+            }
         }
-        }
-    }
-});
+    });
+}

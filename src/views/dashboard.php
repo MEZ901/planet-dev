@@ -160,7 +160,7 @@
       </div>
     </div>
   </div>
-  <div class="mb-16">
+  <div class="mb-16" id="chart">
     <canvas class="mx-auto w-full md:w-[60vw]" id="myChart" aria-label="Hello ARIA World" role="img"></canvas>
   </div>
   <p>.</p>
