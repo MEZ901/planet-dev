@@ -56,5 +56,13 @@ const addField = () => {
 const removeField = () => {
     document.getElementById(`add-article-${articleCount}`).remove();
     articleCount--;
-    if(articleCount == 1) document.getElementById('remove-field').setAttribute('hidden', '')
+    if(articleCount == 1) document.getElementById('remove-field').setAttribute('hidden', '');
+}
+
+const resetForm = () => {
+    while(articleCount > 1) {
+        document.getElementById(`add-article-${articleCount}`).remove();
+        articleCount--;
+    }
+    document.getElementById('add-article-1').reset();
 }
