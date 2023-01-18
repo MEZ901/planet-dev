@@ -57,7 +57,7 @@ include('./src/core/header.php');
             </div>
             <div class="flex items-start">
                 <div class="flex items-center h-5">
-                    <input id="terms" onClick="signupValid()" aria-describedby="terms" type="checkbox" class="w-4 h-4 border rounded bg-gray-700 border-gray-600 focus:ring-primary-600 ring-offset-gray-800" required="">
+                    <input id="terms" aria-describedby="terms" type="checkbox" class="w-4 h-4 border rounded bg-gray-700 border-gray-600 focus:ring-primary-600 ring-offset-gray-800" required="">
                 </div>
                 <div class="ml-3 text-sm">
                     <label for="terms" class="font-light text-gray-300">I accept the <a class="font-medium hover:underline text-primary-500" href="#">Terms and Conditions</a></label>

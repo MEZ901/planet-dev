@@ -82,18 +82,15 @@ if (typeof document.getElementById("signup") !== "undefined" && document.getElem
           text.textContent = "Your password is medium.";
           text.classList.add("medium");
           password.style.borderColor = "#27ae60";
-        } else {
-          text.classList.remove("medium");
         }
   
         if (no == 3) {
           text.textContent = "Your password is strong.";
           text.classList.add("strong");
           password.style.borderColor = "#27ae60";
-        } else {
-          text.classList.remove("strong");
         }
       } else {
+        password.style.borderColor = "lightgrey";
         text.style.display = "none";
       }
       if (no == 1) return false;
@@ -116,14 +113,14 @@ if (typeof document.getElementById("signup") !== "undefined" && document.getElem
       }
     }
 
-    document.addEventListener("keyup", signupValid());
-    function signupValid() {
-      if (usernameChecker() && emailChecker() && passwordChecker() && passwordConfirmationChecker() && document.getElementById("terms").checked) {
+    document.addEventListener("keyup", () => {
+      if (usernameChecker() && emailChecker() && passwordChecker() && passwordConfirmationChecker()) {
         signUpBtn.removeAttribute("disabled");
+
       } else {
         signUpBtn.setAttribute("disabled", "");
       }
-    };
+    });
   }
 
 const signUp = () => {
