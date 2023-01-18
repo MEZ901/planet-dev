@@ -1,11 +1,11 @@
 let articleCount = 1;
 let mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-if (typeof document.getElementById("login") !== "undefined") {
+if (typeof document.getElementById("login") !== "undefined" && document.getElementById("login") !== null) {
 
+    const loginBtn = document.querySelector("[name='login']");
     const email = document.querySelector("#login-email");
     const password = document.querySelector("#login-password");
-    const loginBtn = document.querySelector("[name='login']");
   
     function loginChecker() {
       if (email.value.match(mailFormat) && password.value != "") {
@@ -18,6 +18,113 @@ if (typeof document.getElementById("login") !== "undefined") {
       }
     }
 }
+
+if (typeof document.getElementById("signup") !== "undefined" && document.getElementById("signup") !== null) {
+
+    const signUpBtn = document.querySelector("[name='signup']");
+    const username = document.querySelector("#username");
+    const email = document.querySelector("#email");
+    const password = document.querySelector("#password");
+    const confirmPassword = document.querySelector("#confirm-password");
+    const text = document.querySelector("#password-text");
+  
+    let passwordWeak = /[a-z]/;
+    let passwordMedium = /\d+/;
+    let passwordStrong = /.[!,@,#,$,% ,^,&‚*, ?‚_‚~‚¯‚ (,)]/;
+  
+    function containsNumbers(str) {
+      if (str == "") return -1;
+      else if (/\d/.test(str)) return 0;
+      else return 1;
+    }
+  
+    function usernameChecker() {
+      if (containsNumbers(username.value) == 1) {
+        username.style.borderColor = "#27ae60";
+        return true;
+      } else if (containsNumbers(username.value) == 0) {
+        username.style.borderColor = "#e74c3c";
+        return false;
+      } else {
+        username.style.borderColor = "lightgrey";
+        return false;
+      }
+    }
+  
+    function emailChecker() {
+      if (email.value.match(mailFormat)) {
+        email.style.borderColor = "#27ae60";
+        return true;
+      } else if (!email.value.match(mailFormat) && email.value !== "") {
+        email.style.borderColor = "#e74c3c";
+        return false;
+      } else {
+        email.style.borderColor = "lightgrey";
+        return false;
+      }
+    }
+  
+    function passwordChecker() {
+      var no;
+      if (password.value != "") {
+        if (password.value.length <= 3 && (password.value.match(passwordWeak) || password.value.match(passwordMedium) || password.value.match(passwordStrong))) no = 1;
+        if (password.value.length >= 4 && ((password.value.match(passwordWeak) && password.value.match(passwordMedium)) || (password.value.match(passwordMedium) && password.value.match(passwordStrong)) || (password.value.match(passwordWeak) && password.value.match(passwordStrong)))) no = 2;
+        if (password.value.length >= 8 && password.value.match(passwordWeak) && password.value.match(passwordMedium) && password.value.match(passwordStrong)) no = 3;
+  
+        if (no == 1) {
+          text.style.display = "block";
+          text.textContent = "Your password is too week.";
+          text.classList.add("weak");
+          password.style.borderColor = "#e74c3c";
+        }
+  
+        if (no == 2) {
+          text.textContent = "Your password is medium.";
+          text.classList.add("medium");
+          password.style.borderColor = "#27ae60";
+        } else {
+          text.classList.remove("medium");
+        }
+  
+        if (no == 3) {
+          text.textContent = "Your password is strong.";
+          text.classList.add("strong");
+          password.style.borderColor = "#27ae60";
+        } else {
+          text.classList.remove("strong");
+        }
+      } else {
+        text.style.display = "none";
+      }
+      if (no == 1) return false;
+      else if (no == 2) return true;
+      else return true;
+    }
+  
+    function passwordConfirmationChecker() {
+      if (confirmPassword.value != "") {
+        if (password.value === confirmPassword.value) {
+          confirmPassword.style.borderColor = "#27ae60";
+          return true;
+        } else {
+          confirmPassword.style.borderColor = "#e74c3c";
+          return false;
+        }
+      } else {
+        confirmPassword.style.borderColor = "lightgrey";
+        return false;
+      }
+    }
+
+    document.addEventListener("keyup", signupValid());
+    function signupValid() {
+      if (usernameChecker() && emailChecker() && passwordChecker() && passwordConfirmationChecker() && document.getElementById("terms").checked) {
+        signUpBtn.removeAttribute("disabled");
+      } else {
+        signUpBtn.setAttribute("disabled", "");
+      }
+    };
+  }
 
 const signUp = () => {
     document.getElementById("header").innerText = "Sign up";

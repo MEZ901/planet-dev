@@ -512,3 +512,15 @@ video {
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+
+.weak{
+  color: #ff4757;
+}
+
+.medium{
+  color: orange;
+}
+
+.strong{
+  color: #23ad5c;
+}

@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.weak{
+    color: #ff4757;
+}
+
+.medium{
+    color: orange;
+}
+
+.strong{
+    color: #23ad5c;
+}

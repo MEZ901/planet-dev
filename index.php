@@ -39,30 +39,31 @@ include('./src/core/header.php');
         <!-- signup -->
         <form id="signup" class="space-y-4 md:space-y-6" action="#" hidden>
             <div>
-                <label for="email" class="block mb-2 text-sm font-medium text-white">Username</label>
-                <input type="text" name="username" id="username" class="border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="username" required="">
+                <label for="username" class="block mb-2 text-sm font-medium text-white">Username</label>
+                <input type="text" name="username" id="username" onkeyup="usernameChecker()" class="border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="username" required="">
             </div>
             <div>
                 <label for="email" class="block mb-2 text-sm font-medium text-white">Your email</label>
-                <input type="email" name="email" id="email" class="border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="name@gmail.com" required="">
+                <input type="email" name="email" id="email" onkeyup="emailChecker()" class="border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="name@gmail.com" required="">
             </div>
             <div>
                 <label for="password" class="block mb-2 text-sm font-medium text-white">Password</label>
-                <input type="password" name="password" id="password" placeholder="••••••••" class="border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" required="">
+                <input type="password" name="password" id="password" onkeyup="passwordChecker()" placeholder="••••••••" class="border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" required="">
             </div>
+            <p id="password-text" class="text-center hidden"></p>
             <div>
                 <label for="confirm-password" class="block mb-2 text-sm font-medium text-white">Confirm password</label>
-                <input type="confirm-password" name="confirm-password" id="confirm-password" placeholder="••••••••" class="border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" required="">
+                <input type="password" name="confirm-password" id="confirm-password" onkeyup="passwordConfirmationChecker()" placeholder="••••••••" class="border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" required="">
             </div>
             <div class="flex items-start">
                 <div class="flex items-center h-5">
-                    <input id="terms" aria-describedby="terms" type="checkbox" class="w-4 h-4 border rounded bg-gray-700 border-gray-600 focus:ring-primary-600 ring-offset-gray-800" required="">
+                    <input id="terms" onClick="signupValid()" aria-describedby="terms" type="checkbox" class="w-4 h-4 border rounded bg-gray-700 border-gray-600 focus:ring-primary-600 ring-offset-gray-800" required="">
                 </div>
                 <div class="ml-3 text-sm">
                     <label for="terms" class="font-light text-gray-300">I accept the <a class="font-medium hover:underline text-primary-500" href="#">Terms and Conditions</a></label>
                 </div>
             </div>
-            <button type="button" class="w-full btn btn-primary">Create an account</button>
+            <button type="button" name="signup" class="w-full btn btn-primary" disabled>Create an account</button>
             <p class="text-sm font-light text-gray-400">
                 Already have an account? <a href="#" onClick="login()" class="font-medium hover:underline text-primary-500">Login here</a>
             </p>
