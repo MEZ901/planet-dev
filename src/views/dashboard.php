@@ -120,7 +120,7 @@
   </div>
 </div>
 
-<div id="stats" class="min-h-screen absolute top-0 right-0 left-0 opacity-0">
+<div id="stats" class="min-h-screen absolute top-0 right-0 left-0 z-[-1] opacity-0">
   <div class="navbar bg-base-100">
     <div class="navbar-start">
       <div class="dropdown">

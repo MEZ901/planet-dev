@@ -139,14 +139,18 @@ const stats = () => {
     document.getElementById("stats_btn").classList.add("active");
     document.getElementById("dashboard_btn").classList.remove("active");
     document.getElementById("dashboard").style.opacity = "0";
+    document.getElementById("dashboard").style.zIndex = "-1"
     document.getElementById("stats").style.opacity = "1";
+    document.getElementById("stats").style.zIndex = "0";
 }
 
 const dashboard = () => {
     document.getElementById("dashboard_btn").classList.add("active");
     document.getElementById("stats_btn").classList.remove("active");
     document.getElementById("stats").style.opacity = "0";
+    document.getElementById("stats").style.zIndex = "-1"
     document.getElementById("dashboard").style.opacity = "1";
+    document.getElementById("dashboard").style.zIndex = "0";
 }
 
 const addField = () => {
