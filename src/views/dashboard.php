@@ -84,9 +84,9 @@
 <input type="checkbox" id="add" class="modal-toggle" />
 <div class="modal">
   <div class="modal-box relative">
-    <label for="add" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+    <label for="add" class="btn btn-sm btn-circle absolute right-2 top-2" onClick="resetForm()">✕</label>
     <div id="article">
-      <form id="add-article" class="space-y-4 md:space-y-6 py-5 border-b" action="#">
+      <form id="add-article-1" class="space-y-4 md:space-y-6 py-5 border-b" action="#">
           <div>
               <label for="article-title-1" class="block mb-2 text-sm font-medium text-white">Title</label>
               <input type="text" name="article-title-1" id="article-title-1" class="border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="Title" required="">
@@ -112,7 +112,7 @@
     </div>
     <div class="float-right my-5">
       <button id="add-field" class="btn btn-outline my-1" onClick="addField()">Add field</button>
-      <button id="remove-field" class="btn btn-outline btn-error my-1" hidden>Remove field</button>
+      <button id="remove-field" class="btn btn-outline btn-error my-1" onClick="removeField()" hidden>Remove field</button>
       <button id="save-article" class="btn btn-outline btn-success my-1">Save</button>
     </div>
   </div>

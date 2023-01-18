@@ -25,7 +25,7 @@ const dashboard = () => {
 const addField = () => {
     articleCount ++;
     let articleForm = `
-        <form id="add-article" class="space-y-4 md:space-y-6 py-5 border-b" action="#">
+        <form id="add-article-${articleCount}" class="space-y-4 md:space-y-6 py-5 border-b" action="#">
             <div>
                 <label for="article-title-${articleCount}" class="block mb-2 text-sm font-medium text-white">Title</label>
                 <input type="text" name="article-title-${articleCount}" id="article-title-${articleCount}" class="border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="Title" required="">
@@ -51,4 +51,10 @@ const addField = () => {
     `;
     document.getElementById('article').innerHTML += articleForm;
     document.getElementById('remove-field').removeAttribute('hidden');
+}
+
+const removeField = () => {
+    document.getElementById(`add-article-${articleCount}`).remove();
+    articleCount--;
+    if(articleCount == 1) document.getElementById('remove-field').setAttribute('hidden', '')
 }
