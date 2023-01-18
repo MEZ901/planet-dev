@@ -66,3 +66,22 @@ const resetForm = () => {
     }
     document.getElementById('add-article-1').reset();
 }
+
+new Chart(document.getElementById('myChart'), {
+type: 'line',
+data: {
+    labels: ['13/01', '14/01', '15/01', '16/01', '17/01', '18/01'],
+    datasets: [{
+    label: 'Number of articles published in a day',
+    data: [13, 10, 12, 5, 6, 1],
+    borderWidth: 1
+    }]
+},
+options: {
+    scales: {
+    y: {
+        beginAtZero: true
+    }
+    }
+}
+});
