@@ -31,7 +31,7 @@ include('./src/core/header.php');
                 <label for="password" class="block mb-2 text-sm font-medium text-white">Password</label>
                 <input type="password" name="password" id="login-password" onkeyup="loginChecker()" placeholder="••••••••" class="border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" required="">
             </div>
-            <button type="button" name="login" class="w-full btn btn-primary" onClick="window.location.href='./src/views/dashboard.php'" disabled>Login</button>
+            <button type="button" name="login" class="w-full btn btn-primary" onClick="loginBtn()" disabled>Login</button>
             <p class="text-sm font-light text-gray-400">
                 Don't have an account? <a href="#" onClick="signUp()" class="font-medium hover:underline text-primary-500">Sign up here</a>
             </p>
