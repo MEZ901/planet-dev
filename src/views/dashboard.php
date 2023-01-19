@@ -100,9 +100,11 @@
               <label for="article-category-1" class="block mb-2 text-sm font-medium text-white">Category</label>
               <select name="article-category-1" id="article-category-1" class="select select-bordered w-full">
                 <option disabled selected>Category</option>
-                <option>Web Development</option>
-                <option>Artificial Intelligence</option>
-                <option>Cyber Security</option>
+                <option value="1">Web Development</option>
+                <option value="2">Mobile Development</option>
+                <option value="3">Artificial Intelligence</option>
+                <option value="4">Cyber Security</option>
+                <option value="5">DevOps</option>
               </select>
             </div>
             <div>
