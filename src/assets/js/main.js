@@ -157,6 +157,7 @@ const addField = () => {
     articleCount ++;
     let articleForm = `
         <form id="add-article-${articleCount}" class="space-y-4 md:space-y-6 py-5 border-b" action="#">
+            <h2 class="text-center text-lg font-semibold">Article ${articleCount}</h2>
             <div>
                 <label for="article-title-${articleCount}" class="block mb-2 text-sm font-medium text-white">Title</label>
                 <input type="text" name="article-title-${articleCount}" id="article-title-${articleCount}" class="border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="Title" required="">
@@ -173,6 +174,10 @@ const addField = () => {
                 <option>Artificial Intelligence</option>
                 <option>Cyber Security</option>
             </select>
+            </div>
+            <div>
+                <label for="article-author-${articleCount}" class="block mb-2 text-sm font-medium text-white">Author</label>
+                <input type="text" name="article-author-${articleCount}" id="article-author-${articleCount}" class="border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="author">
             </div>
             <div>
                 <label for="article-keywords-${articleCount}" class="block mb-2 text-sm font-medium text-white">Keywords</label>

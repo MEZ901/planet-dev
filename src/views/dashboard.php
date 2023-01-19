@@ -89,12 +89,12 @@
       <div id="article">
         <form id="add-article-1" class="space-y-4 md:space-y-6 py-5 border-b" action="#">
             <div>
-                <label for="article-title-1" class="block mb-2 text-sm font-medium text-white">Title</label>
-                <input type="text" name="article-title-1" id="article-title-1" class="border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="Title" required="">
+              <label for="article-title-1" class="block mb-2 text-sm font-medium text-white">Title</label>
+              <input type="text" name="article-title-1" id="article-title-1" class="border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="Title" required="">
             </div>
             <div>
-                <label for="article-content-1" class="block mb-2 text-sm font-medium text-white">Content</label>
-                <textarea name="article-content-1" id="article-content-1" class="border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" required=""></textarea>
+              <label for="article-content-1" class="block mb-2 text-sm font-medium text-white">Content</label>
+              <textarea name="article-content-1" id="article-content-1" class="border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" required=""></textarea>
             </div>
             <div>
               <label for="article-category-1" class="block mb-2 text-sm font-medium text-white">Category</label>
@@ -106,8 +106,12 @@
               </select>
             </div>
             <div>
-                <label for="article-keywords-1" class="block mb-2 text-sm font-medium text-white">Keywords</label>
-                <input type="text" name="article-keywords-1" id="article-keywords-1" class="border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="Keywords separate by space">
+              <label for="article-author-1" class="block mb-2 text-sm font-medium text-white">Author</label>
+              <input type="text" name="article-author-1" id="article-author-1" class="border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="author">
+            </div>
+            <div>
+              <label for="article-keywords-1" class="block mb-2 text-sm font-medium text-white">Keywords</label>
+              <input type="text" name="article-keywords-1" id="article-keywords-1" class="border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="Keywords separate by space">
             </div>
         </form>
       </div>
