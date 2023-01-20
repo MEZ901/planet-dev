@@ -8,7 +8,15 @@ if(count($_POST) > 0){
         $data['email'] = $_POST['email'];
         $data['password'] = $_POST['password'];
         $admin = new admin;
-        echo $admin->login($data);
+        $result = $admin->login($data);
+        $result_decode = json_decode($result);
+        if($result_decode){
+            $_SESSION['id'] = $result_decode[0]->ID_ADMIN;
+            $_SESSION['username'] = $result_decode[0]->username;
+            $_SESSION['email'] = $result_decode[0]->email;
+            $_SESSION['password'] = $result_decode[0]->password;
+        }
+        echo $result;
     }
 }
 

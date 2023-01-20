@@ -1,4 +1,7 @@
-<?php include('../core/header.php') ?>
+<?php
+include('../core/header.php');
+if(!isset($_SESSION['id'])) header('location: /planet-dev/index.php');
+?>
 
 <div id="dashboard">
   <div class="navbar bg-base-100">
@@ -9,6 +12,7 @@
         </label>
         <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
           <li><a>settings</a></li>
+          <li><a href="/planet-dev/index.php">logout</a></li>
         </ul>
       </div>
     </div>

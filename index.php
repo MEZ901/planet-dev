@@ -1,5 +1,10 @@
 <?php
 include('./src/core/header.php');
+
+if(isset($_SESSION)){
+    session_unset();
+    session_destroy();
+}
 ?>
 
 <div class="hero min-h-screen" style="background-image: url('https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=847&q=80');">
@@ -23,7 +28,7 @@ include('./src/core/header.php');
         </h1>
         <!-- login -->
         <form id="login" class="space-y-4 md:space-y-6" action="#">
-            <span id="loginErr"></span>
+            <div id="loginErr"></div>
             <div>
                 <label for="email" class="block mb-2 text-sm font-medium text-white">Your email</label>
                 <input type="email" name="email" id="login-email" onkeyup="loginChecker()" class="border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="name@gmail.com" required="">
