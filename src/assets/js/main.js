@@ -225,10 +225,9 @@ if(document.getElementById('stats') != null){
 }
 
 const handleResult = (result, type) => {
-  let data = JSON.parse(result);
   switch(type){
     case 'login':
-      if(data) window.location.href="/planet-dev/src/views/dashboard.php";
+      if(result) window.location.href="/planet-dev/src/views/dashboard.php";
       else console.log("email or password is incorrect");
     break;
   }
@@ -238,13 +237,17 @@ const loginBtn = () => {
   let form = document.getElementById("login");
   let data = new FormData(form);
   data.append('type', 'login');
-  let xhr = new XMLHttpRequest;
-  xhr.onreadystatechange = () => {
-    if (xhr.readyState === 4 && xhr.status == "200") {
-      handleResult(xhr.responseText, 'login');
-    }
-  }
-  xhr.open("POST", "/planet-dev/src/controllers/admin.controller.php", true);
-  xhr.send(data);
-  
+
+  fetch('/planet-dev/src/controllers/admin.controller.php', {
+    method : 'POST',
+    body : data,
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      handleResult(result, 'login');
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+
 }
