@@ -226,10 +226,12 @@ if(document.getElementById('stats') != null){
 
 const handleResult = (result, type) => {
   let data = JSON.parse(result);
-  // switch(type){
-    
-  // }
-  console.log(result)
+  switch(type){
+    case 'login':
+      if(data) window.location.href="/planet-dev/src/views/dashboard.php";
+      else console.log("email or password is incorrect");
+    break;
+  }
 }
 
 const loginBtn = () => {

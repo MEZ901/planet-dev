@@ -12,10 +12,4 @@ if(count($_POST) > 0){
     }
 }
 
-// $data = [];
-// $data['email'] = $_GET['email'];
-// $data['password'] = $_GET['password'];
-// $admin = new admin;
-// $result = $admin->login($data);
-// print_r($result)
 ?>
