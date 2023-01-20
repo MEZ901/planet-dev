@@ -11,11 +11,11 @@ class admin {
         $query = "select * from admin where email = :email and password = :password";
         $result = $this->query($query, $data);
         if($result){
-            return json_encode( $this->query($query, $data));
-        }else{
-            $_SESSION['login_error'] = "Email or password is incorrect!";
+            return json_encode($result);
         }
-        return false;   
+        $_SESSION['login_error'] = "Email or password is incorrect!";
+        $result = false ;
+        return json_encode($result);
         // $this->query($query, $data) ? header('location: /planet-dev/src/views/dashboard.php') : $_SESSION['login_error'] = "Email or password is incorrect!";
     }
 }

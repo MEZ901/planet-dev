@@ -228,7 +228,10 @@ const handleResult = (result, type) => {
   switch(type){
     case 'login':
       if(result) window.location.href="/planet-dev/src/views/dashboard.php";
-      else console.log("email or password is incorrect");
+      else{
+        // console.log("email or password is incorrect");
+        document.getElementById('loginErr').innerHTML = "email or password is incorrect";
+      }
     break;
   }
 }
@@ -247,7 +250,7 @@ const loginBtn = () => {
       handleResult(result, 'login');
     })
     .catch((error) => {
-      console.error('Error:', error);
+      console.log('Error:', error);
     });
 
 }

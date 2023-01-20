@@ -23,7 +23,7 @@ include('./src/core/header.php');
         </h1>
         <!-- login -->
         <form id="login" class="space-y-4 md:space-y-6" action="#">
-            <?php if(isset($_SESSION['login_error'])){ echo "hhhhhhhhhhhhh"; } ?>
+            <span id="loginErr"></span>
             <div>
                 <label for="email" class="block mb-2 text-sm font-medium text-white">Your email</label>
                 <input type="email" name="email" id="login-email" onkeyup="loginChecker()" class="border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="name@gmail.com" required="">
