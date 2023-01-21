@@ -12,6 +12,17 @@ class admin {
         $result = $this->query($query, $data);
         return json_encode($result);
     }
+
+    public function insertArticle($data){
+        $query = "";
+        foreach($data as $form){
+            $keys = array_keys($form);
+            $values = array_values($form);
+            $query .= "insert into $this->table (". implode(",", $keys) .") values (". implode(",", $values) .");";
+        }
+        $this->query($query);
+        return false;
+    }
 }
 
 ?>

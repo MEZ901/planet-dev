@@ -169,10 +169,12 @@ const addField = () => {
           <div>
           <label for="article-category-${articleCount}" class="block mb-2 text-sm font-medium text-white">Category</label>
           <select name="article-category-${articleCount}" id="article-category-${articleCount}" class="select select-bordered w-full">
-              <option disabled selected>Category</option>
-              <option>Web Development</option>
-              <option>Artificial Intelligence</option>
-              <option>Cyber Security</option>
+            <option disabled selected>Category</option>
+            <option value="1">Web Development</option>
+            <option value="2">Mobile Development</option>
+            <option value="3">Artificial Intelligence</option>
+            <option value="4">Cyber Security</option>
+            <option value="5">DevOps</option>
           </select>
           </div>
           <div>
@@ -181,7 +183,7 @@ const addField = () => {
           </div>
           <div>
               <label for="article-keywords-${articleCount}" class="block mb-2 text-sm font-medium text-white">Keywords</label>
-              <input type="text" name="article-keywords-${articleCount}" id="article-keywords-1" class="border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="Keywords separate by space">
+              <input type="text" name="article-keywords-${articleCount}" id="article-keywords-${articleCount}" class="border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="Keywords separate by space">
           </div>
       </form>
   `;
@@ -266,5 +268,47 @@ const loginBtn = () => {
     .catch((error) => {
       console.log('Error:', error);
     });
+}
 
+const saveArticle = () => {
+  let forms = {};
+  let formData = new FormData();
+  for(let i = 1; i <= articleCount; i++){
+    // forms[i-1] = {
+    //   title: document.querySelector(`#article-title-${i}`).value,
+    //   content: document.querySelector(`#article-content-${i}`).value,
+    //   category: document.querySelector(`#article-category-${i}`).value,
+    //   author: document.querySelector(`#article-author-${i}`).value,
+    //   keywords: document.querySelector(`#article-keywords-${i}`).value
+    // };
+
+    // forms[`title_${i}`] = document.querySelector(`#article-title-${i}`).value
+    // forms[`content_${i}`] = document.querySelector(`#article-content-${i}`).value
+    // forms[`category_${i}`] = document.querySelector(`#article-category-${i}`).value
+    // forms[`author_${i}`] = document.querySelector(`#article-author-${i}`).value
+    // forms[`keywords_${i}`] = document.querySelector(`#article-keywords-${i}`).value
+
+    formData.append(`title_${i}`, document.querySelector(`#article-title-${i}`).value);
+    formData.append(`content_${i}`, document.querySelector(`#article-content-${i}`).value);
+    formData.append(`category_${i}`, document.querySelector(`#article-category-${i}`).value);
+    formData.append(`author_${i}`, document.querySelector(`#article-author-${i}`).value);
+    formData.append(`keywords_${i}`, document.querySelector(`#article-keywords-${i}`).value);
+  }
+  console.log(forms)
+
+  // formData.append('forms', forms);
+  formData.append('type', 'insert');
+
+  fetch('/planet-dev/src/controllers/admin.controller.php', {
+    method : 'POST',
+    body : formData,
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      console.log(result);
+      // handleResult(result, 'login');
+    })
+    // .catch((error) => {
+    //   console.error('Error:', error);
+    // });
 }

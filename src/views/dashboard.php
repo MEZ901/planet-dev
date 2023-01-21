@@ -124,7 +124,7 @@ if(!isset($_SESSION['id'])) header('location: /planet-dev/index.php');
       <div class="float-right my-5">
         <button id="add-field" class="btn btn-outline my-1" onClick="addField()">Add field</button>
         <button id="remove-field" class="btn btn-outline btn-error my-1" onClick="removeField()" hidden>Remove field</button>
-        <button id="save-article" class="btn btn-outline btn-success my-1">Save</button>
+        <button id="save-article" class="btn btn-outline btn-success my-1" onClick="saveArticle()">Save</button>
       </div>
     </div>
   </div>
