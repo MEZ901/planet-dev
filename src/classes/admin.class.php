@@ -18,10 +18,11 @@ class admin {
         foreach($data as $form){
             $keys = array_keys($form);
             $values = array_values($form);
-            $query .= "insert into $this->table (". implode(",", $keys) .") values (". implode(",", $values) .");";
+            $query .= "insert into article (". implode(",", $keys) .",date) values ('". implode("','", $values) ."',curdate());";
         }
-        $this->query($query);
-        return false;
+        $result = $this->query($query);
+        
+        return json_encode($result);
     }
 }
 

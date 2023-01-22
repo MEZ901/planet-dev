@@ -21,15 +21,13 @@ if(count($_POST) > 0){
         break;
         case 'insert':
             $data = [];
-            for($i = 1; $i < count($_POST); $i++){
-                $data["title_$i"] = $_POST["title_$i"];
-                $data["content_$i"] = $_POST["content_$i"];
-                $data["category_$i"] = $_POST["category_$i"];
-                $data["author_$i"] = $_POST["author_$i"];
-                $data["keywords_$i"] = $_POST["keywords_$i"];
+            for($i = 1; $i <= (sizeof($_POST)-1)/5; $i++){
+                $data[$i-1]["title"] = $_POST["title_$i"];
+                $data[$i-1]["content"] = $_POST["content_$i"];
+                $data[$i-1]["category"] = $_POST["category_$i"];
+                $data[$i-1]["author"] = $_POST["author_$i"];
+                $data[$i-1]["keywords"] = $_POST["keywords_$i"];
             }
-            echo $data;
-            die();
             $admin = new admin;
             $result = $admin->insertArticle($data);
             echo $result;

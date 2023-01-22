@@ -38,6 +38,8 @@ if(!isset($_SESSION['id'])) header('location: /planet-dev/index.php');
       <label for="add" class="btn btn-primary">add article</label>
   </div>
 
+  <div id="article_alert"></div>
+
   <div class="overflow-x-auto m-5">
     <table class="table w-full">
       <thead>
@@ -89,7 +91,7 @@ if(!isset($_SESSION['id'])) header('location: /planet-dev/index.php');
   <input type="checkbox" id="add" class="modal-toggle" />
   <div class="modal">
     <div class="modal-box relative">
-      <label for="add" class="btn btn-sm btn-circle absolute right-2 top-2" onClick="resetForm()">✕</label>
+      <label for="add" id="close_modal" class="btn btn-sm btn-circle absolute right-2 top-2" onClick="resetForm()">✕</label>
       <div id="article">
         <form id="add-article-1" class="space-y-4 md:space-y-6 py-5 border-b" action="#">
             <div>
