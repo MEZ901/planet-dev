@@ -17,7 +17,7 @@ if(count($_POST) > 0){
                 $_SESSION['email'] = $result_decode[0]->email;
                 $_SESSION['password'] = $result_decode[0]->password;
             }
-            print_r($result);
+            echo $result;
         break;
         case 'insert':
             $data = [];

@@ -226,6 +226,20 @@ if(document.getElementById('stats') != null){
   });
 }
 
+const ajaxRequest = (formData, type) => {
+  fetch('/planet-dev/src/controllers/admin.controller.php', {
+    method : 'POST',
+    body : formData,
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      handleResult(result, type);
+    })
+    .catch((error) => {
+      console.log('Error:', error);
+    });
+}
+
 const handleResult = (result, type) => {
   switch(type){
     case 'login':
@@ -246,6 +260,7 @@ const handleResult = (result, type) => {
       }
     break;
     case 'insert':
+      document.getElementById("close_modal").click();
       document.getElementById('article_alert').innerHTML = `
         <div id="alert-border-3" class="m-5 flex p-4 mb-4 border-t-4 text-green-400 bg-gray-800 border-green-800" role="alert">
           <svg class="flex-shrink-0 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
@@ -268,20 +283,9 @@ const closeAlert = (e) => {
 
 const loginBtn = () => {
   let form = document.getElementById("login");
-  let data = new FormData(form);
-  data.append('type', 'login');
-
-  fetch('/planet-dev/src/controllers/admin.controller.php', {
-    method : 'POST',
-    body : data,
-  })
-    .then((response) => response.json())
-    .then((result) => {
-      handleResult(result, 'login');
-    })
-    .catch((error) => {
-      console.log('Error:', error);
-    });
+  let formData = new FormData(form);
+  formData.append('type', 'login');
+  ajaxRequest(formData, 'login');
 }
 
 const saveArticle = () => {
@@ -294,17 +298,9 @@ const saveArticle = () => {
     formData.append(`keywords_${i}`, document.querySelector(`#article-keywords-${i}`).value);
   }
   formData.append('type', 'insert');
+  ajaxRequest(formData, 'insert');
+}
 
-  fetch('/planet-dev/src/controllers/admin.controller.php', {
-    method : 'POST',
-    body : formData,
-  })
-    .then((response) => response.json())
-    .then((result) => {
-      handleResult(result, 'insert');
-      document.getElementById("close_modal").click();
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
+const showArticles = () => {
+
 }
