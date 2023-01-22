@@ -26,9 +26,15 @@ class admin {
     }
 
     public function getAll(){
-        $query = "select * from article order by date desc";
+        $query = "select ID_ARTICLE, title, date from article order by date desc";
         $result = $this->query($query);
         return json_encode($result);
+    }
+
+    public function getWhere($id){
+        $query = "select article.title, article.content, article.keywords, article.author, category.category from `article` inner join category on article.category = category.ID_CATEGORY where ID_ARTICLE = $id";
+        $result = $this->query($query);
+        return json_encode($result[0]);
     }
 }
 

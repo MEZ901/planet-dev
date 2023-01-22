@@ -288,6 +288,14 @@ const handleResult = (result, type) => {
         `;
       });
     break;
+    case 'where':
+      console.log(result)
+      document.getElementById("title").innerHTML = result['title'];
+      document.getElementById("content").innerHTML = result['content'];
+      document.getElementById("author").innerHTML = result['author'];
+      document.getElementById("category").innerHTML = result['category'];
+      document.getElementById("keywords").innerHTML = result['keywords'];
+    break;
   }
 }
 
@@ -321,9 +329,12 @@ const showArticles = () => {
   ajaxRequest(formData, 'show');
 }
 
-const articleDetails = (e) => {
-  
-  console.log(e)
+const articleDetails = (id) => {
+  let formData = new FormData();
+  formData.append('id', id);
+  formData.append('type', 'where');
+  ajaxRequest(formData, 'where');
+  console.log(id)
 }
 
 showArticles();

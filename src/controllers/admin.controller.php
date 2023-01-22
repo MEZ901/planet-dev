@@ -37,6 +37,12 @@ if(count($_POST) > 0){
             $result = $admin->getAll();
             echo $result;
         break;
+        case 'where':
+            $id = $_POST['id'];
+            $admin = new admin;
+            $result = $admin->getWhere($id);
+            echo $result;
+        break;
     }
 }
 
