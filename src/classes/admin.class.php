@@ -24,6 +24,12 @@ class admin {
         
         return json_encode($result);
     }
+
+    public function getAll(){
+        $query = "select * from article order by date desc";
+        $result = $this->query($query);
+        return json_encode($result);
+    }
 }
 
 ?>

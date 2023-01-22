@@ -41,7 +41,7 @@ if(!isset($_SESSION['id'])) header('location: /planet-dev/index.php');
   <div id="article_alert"></div>
 
   <div class="overflow-x-auto m-5">
-    <table class="table w-full">
+    <table class="table w-full mb-12">
       <thead>
         <tr>
           <th>id</th>
@@ -50,26 +50,7 @@ if(!isset($_SESSION['id'])) header('location: /planet-dev/index.php');
           <th></th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <th>1</th>
-          <td>Cy Ganderton</td>
-          <td>16/01/2023</td>
-          <td class="float-right"><label class="btn" for="details">See Details</label></td>
-        </tr>
-        <tr>
-          <th>2</th>
-          <td>Hart Hagerty</td>
-          <td>16/01/2023</td>
-          <td class="float-right"><label class="btn" for="details">See Details</label></td>
-        </tr>
-        <tr>
-          <th>3</th>
-          <td>Brice Swyre</td>
-          <td>16/01/2023</td>
-          <td class="float-right"><label class="btn" for="details">See Details</label></td>
-        </tr>
-      </tbody>
+      <tbody id="dashboard_table"></tbody>
     </table>
   </div>
 
@@ -175,14 +156,14 @@ if(!isset($_SESSION['id'])) header('location: /planet-dev/index.php');
   <div class="mb-16" id="chart">
     <canvas class="mx-auto w-full md:w-[60vw]" id="myChart" aria-label="Hello ARIA World" role="img"></canvas>
   </div>
-  <p>.</p>
+  <p class="opacity-0">.</p>
 </div>
 
-<div class="btm-nav">
-  <button id="dashboard_btn" onClick="dashboard()" class="active">
+<div class="btm-nav z-50">
+  <button id="dashboard_btn" onClick="dashboard()" class="active ">
     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
   </button>
-  <button id="stats_btn" onClick="stats()">
+  <button id="stats_btn" onClick="stats()" class="">
     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
   </button>
 </div>

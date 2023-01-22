@@ -32,6 +32,11 @@ if(count($_POST) > 0){
             $result = $admin->insertArticle($data);
             echo $result;
         break;
+        case 'show':
+            $admin = new admin;
+            $result = $admin->getAll();
+            echo $result;
+        break;
     }
 }
 

@@ -273,6 +273,20 @@ const handleResult = (result, type) => {
           </button>
         </div>
       `;
+      showArticles();
+    break;
+    case 'show':
+      document.getElementById("dashboard_table").innerHTML = '';
+      result.map((row) => {
+        document.getElementById("dashboard_table").innerHTML += `
+          <tr>
+            <th>${row['ID_ARTICLE']}</th>
+            <td>${row['title']}</td>
+            <td>${row['date']}</td>
+            <td class="float-right"><label class="btn" for="details" onClick="articleDetails(${row['ID_ARTICLE']})">See Details</label></td>
+          </tr>
+        `;
+      });
     break;
   }
 }
@@ -302,5 +316,14 @@ const saveArticle = () => {
 }
 
 const showArticles = () => {
-
+  let formData = new FormData();
+  formData.append('type', 'show');
+  ajaxRequest(formData, 'show');
 }
+
+const articleDetails = (e) => {
+  
+  console.log(e)
+}
+
+showArticles();
