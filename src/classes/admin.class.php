@@ -26,7 +26,7 @@ class admin {
     }
 
     public function getAll(){
-        $query = "select ID_ARTICLE, title, date from article order by date desc";
+        $query = "select ID_ARTICLE, title, date from article order by ID_ARTICLE desc";
         $result = $this->query($query);
         return json_encode($result);
     }
@@ -35,6 +35,13 @@ class admin {
         $query = "select article.title, article.content, article.keywords, article.author, category.category from `article` inner join category on article.category = category.ID_CATEGORY where ID_ARTICLE = $id";
         $result = $this->query($query);
         return json_encode($result[0]);
+    }
+
+    public function delete($id){
+        $query = "delete from article where ID_ARTICLE = $id";
+        $this->query($query);
+        $result = $id;
+        return json_encode($result);
     }
 }
 

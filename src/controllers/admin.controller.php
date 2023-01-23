@@ -43,6 +43,12 @@ if(count($_POST) > 0){
             $result = $admin->getWhere($id);
             echo $result;
         break;
+        case 'delete':
+            $id = $_POST['id'];
+            $admin = new admin;
+            $result = $admin->delete($id);
+            echo $result;
+        break;
     }
 }
 

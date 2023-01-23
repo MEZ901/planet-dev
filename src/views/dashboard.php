@@ -57,16 +57,17 @@ if(!isset($_SESSION['id'])) header('location: /planet-dev/index.php');
   <!-- Details modal -->
   <input type="checkbox" id="details" class="modal-toggle" />
   <div class="modal">
+    <input type="hidden" id="id_holder">
     <div class="modal-box relative">
-      <label for="details" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+      <label id="close_details_modal" for="details" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
       <h3 class="text-lg font-bold" id="title"></h3>
       <p class="py-4" id="content"></p>
       <p class="py-4 font-bold">Author: <span class="font-normal" id="author"></span></p>
       <p class="py-4 font-bold">Category: <span class="font-normal" id="category"></span></p>
       <p class="py-4 font-bold">Keywords: <span class="font-normal" id="keywords"></span></p>
       <div class="float-right">
-          <button class="btn btn-outline btn-warning">Edit</button>
-          <button class="btn btn-outline btn-error">Delete</button>
+        <button class="btn btn-outline btn-warning">Edit</button>
+        <button class="btn btn-outline btn-error" onClick="deleteArticle()">Delete</button>
       </div>
     </div>
   </div>
