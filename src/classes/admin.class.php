@@ -17,11 +17,12 @@ class admin {
         $query = "";
         foreach($data as $form){
             $keys = array_keys($form);
-            $values = array_values($form);
+            $values = array_values($form);=
             $query .= "insert into article (". implode(",", $keys) .",date) values ('". implode("','", $values) ."',curdate());";
         }
         $result = $this->query($query);
         return json_encode($result);
+        
     }
 
     public function getAll(){
@@ -31,28 +32,24 @@ class admin {
     }
 
     public function getWhere($id){
-        $query = "select * from `article` inner join category on article.category = category.ID_CATEGORY where ID_ARTICLE = $id";
-        $result = $this->query($query);
+        $dataExecute = array($id);
+        $query = "select * from `article` inner join category on article.category = category.ID_CATEGORY where ID_ARTICLE = ?";
+        $result = $this->query($query, $dataExecute);
         return json_encode($result[0]);
     }
 
     public function delete($id){
-        $query = "delete from article where ID_ARTICLE = $id";
-        $this->query($query);
+        $dataExecute = array($id);
+        $query = "delete from article where ID_ARTICLE = ?";
+        $this->query($query, $dataExecute);
         $result = $id;
         return json_encode($result);
     }
 
     public function updateArticle($data){
-        $id = $data["id"];
-        $title = $data["title"];
-        $content = $data["content"];
-        $category = $data["category"];
-        $author = $data["author"];
-        $keywords = $data["keywords"];
-
-        $query = "update article set title='$title',content='$content',category='$category',author='$author',keywords='$keywords' where ID_ARTICLE = $id";
-        $result = $this->query($query);
+        $dataExecute = array($data["title"], $data["content"], $data["category"], $data["author"], $data["keywords"], $data["id"]);
+        $query = "update article set title=?,content=?,category=?,author=?,keywords=? where ID_ARTICLE=?";
+        $result = $this->query($query, $dataExecute);
         return json_encode($result);
     }
 }
