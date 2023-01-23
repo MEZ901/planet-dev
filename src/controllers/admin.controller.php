@@ -49,6 +49,18 @@ if(count($_POST) > 0){
             $result = $admin->delete($id);
             echo $result;
         break;
+        case 'update':
+            $data = [];
+            $data["id"] = $_POST["id"];
+            $data["title"] = $_POST["title"];
+            $data["content"] = $_POST["content"];
+            $data["category"] = $_POST["category"];
+            $data["author"] = $_POST["author"];
+            $data["keywords"] = $_POST["keywords"];
+            $admin = new admin;
+            $result = $admin->updateArticle($data);
+            echo $result;
+        break;
     }
 }
 

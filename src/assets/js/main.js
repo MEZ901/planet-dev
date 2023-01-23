@@ -233,11 +233,9 @@ const ajaxRequest = (formData, type) => {
   })
     .then((response) => response.json())
     .then((result) => {
+      // console.log(result);
       handleResult(result, type);
     })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
 }
 
 const errorAlert = (msg) => (
@@ -320,6 +318,13 @@ const handleResult = (result, type) => {
       document.getElementById("article-author-1").value = result.author;
       document.getElementById("article-keywords-1").value = result.keywords;
     break;
+
+    case 'update':
+      document.getElementById("close_modal").click();
+      document.getElementById(`close_details_modal`).click();
+      document.getElementById('article_alert').innerHTML = successAlert('The article has been updated successfully!');
+      showArticles();
+    break;
   }
 }
 
@@ -372,6 +377,7 @@ const deleteArticle = () => {
 const addBtn = () => {
   document.getElementById("update-article").setAttribute("hidden", "");
   document.getElementById("save-article").removeAttribute("hidden");
+  document.getElementById("add-field").removeAttribute("hidden");
 }
 
 const updateBtn = () => {
@@ -385,6 +391,18 @@ const updateBtn = () => {
   formData.append('id', id);
   formData.append('type', 'where');
   ajaxRequest(formData, 'edit');
+}
+
+const updateArticle = () => {
+  let formData = new FormData();
+  formData.append(`id`, document.querySelector(`#id_holder`).value);
+  formData.append(`title`, document.querySelector(`#article-title-1`).value);
+  formData.append(`content`, document.querySelector(`#article-content-1`).value);
+  formData.append(`category`, document.querySelector(`#article-category-1`).value);
+  formData.append(`author`, document.querySelector(`#article-author-1`).value);
+  formData.append(`keywords`, document.querySelector(`#article-keywords-1`).value);
+  formData.append('type', 'update');
+  ajaxRequest(formData, 'update');
 }
 
 showArticles();
