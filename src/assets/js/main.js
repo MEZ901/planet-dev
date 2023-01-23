@@ -298,7 +298,7 @@ const handleResult = (result, type) => {
         document.getElementById("dashboard_table").innerHTML += `
           <tr id="article_${row['ID_ARTICLE']}" class="articles">
             <th>${row['ID_ARTICLE']}</th>
-            <td id="title">${row['title']}</td>
+            <td id="td_title">${row['title']}</td>
             <td>${row['date']}</td>
             <td class="float-right"><label class="btn" for="details" onClick="articleDetails(${row['ID_ARTICLE']})">See Details</label></td>
           </tr>
@@ -438,7 +438,7 @@ const search = () => {
 
   if(search.value != ""){
     articles.forEach(article => {
-      let title = article.querySelector("#title").innerHTML;
+      let title = article.querySelector("#td_title").innerHTML;
       if(title.includes(search.value)){
         article.removeAttribute("hidden");
       }else{
