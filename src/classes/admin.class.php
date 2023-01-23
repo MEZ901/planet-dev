@@ -14,15 +14,16 @@ class admin {
     }
 
     public function insertArticle($data){
-        $query = "";
-        foreach($data as $form){
-            $keys = array_keys($form);
-            $values = array_values($form);=
-            $query .= "insert into article (". implode(",", $keys) .",date) values ('". implode("','", $values) ."',curdate());";
+        $query = trim("insert into article (". implode(",", array_keys($data[0])) .",date) values ".str_repeat("(".str_repeat("?,", count(array_keys($data[0]))-1)."?,curdate()),", count($data)),",");
+        $dataExecute = [];
+        foreach ($data as $form) {
+            $values = array_values($form);
+            foreach ($values as $value) {
+                array_push($dataExecute, $value);
+            }
         }
-        $result = $this->query($query);
+        $result = $this->query($query, $dataExecute);
         return json_encode($result);
-        
     }
 
     public function getAll(){

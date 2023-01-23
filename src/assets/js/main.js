@@ -199,10 +199,11 @@ const removeField = () => {
 
 const resetForm = () => {
   while(articleCount > 1) {
-      document.getElementById(`add-article-${articleCount}`).remove();
-      articleCount--;
+    document.getElementById(`add-article-${articleCount}`).remove();
+    articleCount--;
   }
   document.getElementById('add-article-1').reset();
+  document.getElementById('remove-field').setAttribute('hidden', '');
 }
 
 if(document.getElementById('stats') != null){
