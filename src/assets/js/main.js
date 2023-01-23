@@ -240,41 +240,51 @@ const ajaxRequest = (formData, type) => {
     });
 }
 
+const errorAlert = (msg) => (
+  `
+    <div id="alert-border-2" class="flex p-4 mb-4 border-t-4 border-red-500 text-red-400 bg-gray-800" role="alert">
+      <svg class="flex-shrink-0 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+      <div class="ml-3 text-sm font-medium">
+        ${msg}
+      </div>
+      <button type="button" onClick="closeAlert(this)" class="ml-auto -mx-1.5 -my-1.5 rounded-lg focus:ring-2 focus:ring-red-400 p-1.5 inline-flex h-8 w-8 bg-gray-800 text-red-300 hover:bg-gray-700"  data-dismiss-target="#alert-border-2" aria-label="Close">
+        <span class="sr-only">Dismiss</span>
+        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+      </button>
+    </div>
+  `
+)
+
+const successAlert = (msg) => (
+  `
+    <div id="alert-border-3" class="m-5 flex p-4 mb-4 border-t-4 text-green-400 bg-gray-800 border-green-800" role="alert">
+      <svg class="flex-shrink-0 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+      <div class="ml-3 text-sm font-medium">
+        ${msg}
+      </div>
+      <button type="button" onClick="closeAlert(this)" class="ml-auto -mx-1.5 -my-1.5 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 inline-flex h-8 w-8 bg-gray-800 text-green-300 hover:bg-gray-700"  data-dismiss-target="#alert-border-3" aria-label="Close">
+        <span class="sr-only">Dismiss</span>
+        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+      </button>
+    </div>
+  `
+)
+
 const handleResult = (result, type) => {
   switch(type){
     case 'login':
       if(result) window.location.href="/planet-dev/src/views/dashboard.php";
       else{
-        document.getElementById('loginErr').innerHTML = `
-          <div id="alert-border-2" class="flex p-4 mb-4 border-t-4 border-red-500 text-red-400 bg-gray-800" role="alert">
-            <svg class="flex-shrink-0 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
-            <div class="ml-3 text-sm font-medium">
-              Email or password is incorrect.
-            </div>
-            <button type="button" onClick="closeAlert(this)" class="ml-auto -mx-1.5 -my-1.5 rounded-lg focus:ring-2 focus:ring-red-400 p-1.5 inline-flex h-8 w-8 bg-gray-800 text-red-300 hover:bg-gray-700"  data-dismiss-target="#alert-border-2" aria-label="Close">
-              <span class="sr-only">Dismiss</span>
-              <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-            </button>
-          </div>
-        `;
+        document.getElementById('loginErr').innerHTML = errorAlert('Email or password is incorrect.');
       }
     break;
+
     case 'insert':
       document.getElementById("close_modal").click();
-      document.getElementById('article_alert').innerHTML = `
-        <div id="alert-border-3" class="m-5 flex p-4 mb-4 border-t-4 text-green-400 bg-gray-800 border-green-800" role="alert">
-          <svg class="flex-shrink-0 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
-          <div class="ml-3 text-sm font-medium">
-            The article has been added successfully!
-          </div>
-          <button type="button" onClick="closeAlert(this)" class="ml-auto -mx-1.5 -my-1.5 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 inline-flex h-8 w-8 bg-gray-800 text-green-300 hover:bg-gray-700"  data-dismiss-target="#alert-border-3" aria-label="Close">
-            <span class="sr-only">Dismiss</span>
-            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-          </button>
-        </div>
-      `;
+      document.getElementById('article_alert').innerHTML = successAlert('The article has been added successfully!');
       showArticles();
     break;
+
     case 'show':
       document.getElementById("dashboard_table").innerHTML = '';
       result.map((row) => {
@@ -288,6 +298,7 @@ const handleResult = (result, type) => {
         `;
       });
     break;
+
     case 'where':
       document.getElementById("title").innerHTML = result['title'];
       document.getElementById("content").innerHTML = result['content'];
@@ -295,22 +306,13 @@ const handleResult = (result, type) => {
       document.getElementById("category").innerHTML = result['category'];
       document.getElementById("keywords").innerHTML = result['keywords'];
     break;
+
     case 'delete':
       document.getElementById(`close_details_modal`).click();
       document.getElementById(`article_${result}`).remove();
-      document.getElementById(`article_alert`).innerHTML = `
-        <div id="alert-border-3" class="m-5 flex p-4 mb-4 border-t-4 text-green-400 bg-gray-800 border-green-800" role="alert">
-          <svg class="flex-shrink-0 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
-          <div class="ml-3 text-sm font-medium">
-            The article has been deleted successfully!
-          </div>
-          <button type="button" onClick="closeAlert(this)" class="ml-auto -mx-1.5 -my-1.5 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 inline-flex h-8 w-8 bg-gray-800 text-green-300 hover:bg-gray-700"  data-dismiss-target="#alert-border-3" aria-label="Close">
-            <span class="sr-only">Dismiss</span>
-            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-          </button>
-        </div>
-      `;
+      document.getElementById(`article_alert`).innerHTML = successAlert('The article has been deleted successfully!');
     break;
+
   }
 }
 
