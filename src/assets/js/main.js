@@ -296,9 +296,9 @@ const handleResult = (result, type) => {
       document.getElementById("dashboard_table").innerHTML = '';
       result.map((row) => {
         document.getElementById("dashboard_table").innerHTML += `
-          <tr id="article_${row['ID_ARTICLE']}">
+          <tr id="article_${row['ID_ARTICLE']}" class="articles">
             <th>${row['ID_ARTICLE']}</th>
-            <td>${row['title']}</td>
+            <td id="title">${row['title']}</td>
             <td>${row['date']}</td>
             <td class="float-right"><label class="btn" for="details" onClick="articleDetails(${row['ID_ARTICLE']})">See Details</label></td>
           </tr>
@@ -430,6 +430,26 @@ const updateArticle = () => {
   formData.append(`keywords`, document.querySelector(`#article-keywords-1`).value);
   formData.append('type', 'update');
   ajaxRequest(formData, 'update');
+}
+
+const search = () => {
+  let articles = document.querySelectorAll(".articles");
+  let search = document.getElementById("search");
+
+  if(search.value != ""){
+    articles.forEach(article => {
+      let title = article.querySelector("#title").innerHTML;
+      if(title.includes(search.value)){
+        article.removeAttribute("hidden");
+      }else{
+        article.setAttribute("hidden", "");
+      }
+    });
+  }else{
+    articles.forEach(article => {
+      article.removeAttribute("hidden");
+    });
+  }
 }
 
 showArticles();

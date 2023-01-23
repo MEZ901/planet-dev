@@ -20,7 +20,7 @@ if(!isset($_SESSION['id'])) header('location: /planet-dev/index.php');
       <a class="btn btn-ghost normal-case text-xl">Planet DEV</a>
     </div>
     <div class="navbar-end">
-      <input id="search" type="search" placeholder="Search" class="input input-bordered max-w-xs" />
+      <input id="search" onkeyup="search()" type="search" placeholder="Search" class="input input-bordered max-w-xs" />
       <button id="search_btn" class="btn btn-ghost btn-circle">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
       </button>
