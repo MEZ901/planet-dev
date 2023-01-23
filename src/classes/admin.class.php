@@ -14,7 +14,7 @@ class admin {
     }
 
     public function insertArticle($data){
-        $query = trim("insert into article (". implode(",", array_keys($data[0])) .",date) values ".str_repeat("(".str_repeat("?,", count(array_keys($data[0]))-1)."?,curdate()),", count($data)),",");
+        $query = trim("insert into article (". implode(",", array_keys($data[0])) .",date) values ".str_repeat("(".str_repeat("?,", count(array_keys($data[0])))."curdate()),", count($data)),",");
         $dataExecute = [];
         foreach ($data as $form) {
             $values = array_values($form);

@@ -80,27 +80,31 @@ if(!isset($_SESSION['id'])) header('location: /planet-dev/index.php');
       <div id="article">
         <form id="add-article-1" class="space-y-4 md:space-y-6 py-5 border-b" action="#">
             <div>
-              <label for="article-title-1" class="block mb-2 text-sm font-medium text-white">Title</label>
-              <input type="text" name="article-title-1" id="article-title-1" class="border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="Title" required="">
+              <label for="article-title-1" class="block mb-2 text-sm font-medium text-white">Title <span class=" text-red-600">*</span></label>
+              <input type="text" onkeyup="fieldChecker(this)" name="article-title-1" id="article-title-1" class="article_field border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="Title" required="">
+              <label for="article-title-1" class="mt-1 text-xs font-light text-red-600" hidden>This field can not be empty</label>
             </div>
             <div>
-              <label for="article-content-1" class="block mb-2 text-sm font-medium text-white">Content</label>
-              <textarea name="article-content-1" id="article-content-1" class="border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" required=""></textarea>
+              <label for="article-content-1" class="block mb-2 text-sm font-medium text-white">Content <span class=" text-red-600">*</span></label>
+              <textarea name="article-content-1" onkeyup="fieldChecker(this)" id="article-content-1" class="article_field border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" required=""></textarea>
+              <label for="article-title-1" class="mt-1 text-xs font-light text-red-600" hidden>This field can not be empty</label>
             </div>
             <div>
-              <label for="article-category-1" class="block mb-2 text-sm font-medium text-white">Category</label>
-              <select name="article-category-1" id="article-category-1" class="select select-bordered w-full">
-                <option disabled selected>Category</option>
+              <label for="article-category-1" class="block mb-2 text-sm font-medium text-white">Category <span class=" text-red-600">*</span></label>
+              <select name="article-category-1" onChange="fieldChecker(this)" id="article-category-1" class="article_field select select-bordered w-full">
+                <option disabled value="0" selected>Category</option>
                 <option value="1">Web Development</option>
                 <option value="2">Mobile Development</option>
                 <option value="3">Artificial Intelligence</option>
                 <option value="4">Cyber Security</option>
                 <option value="5">DevOps</option>
               </select>
+              <label for="article-title-1" class="mt-1 text-xs font-light text-red-600" hidden>This field can not be empty</label>
             </div>
             <div>
-              <label for="article-author-1" class="block mb-2 text-sm font-medium text-white">Author</label>
-              <input type="text" name="article-author-1" id="article-author-1" class="border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="author">
+              <label for="article-author-1" class="block mb-2 text-sm font-medium text-white">Author <span class=" text-red-600">*</span></label>
+              <input type="text" onkeyup="fieldChecker(this)" name="article-author-1" id="article-author-1" class="article_field border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="author">
+              <label for="article-title-1" class="mt-1 text-xs font-light text-red-600" hidden>This field can not be empty</label>
             </div>
             <div>
               <label for="article-keywords-1" class="block mb-2 text-sm font-medium text-white">Keywords</label>
