@@ -32,7 +32,7 @@ class admin {
     }
 
     public function getWhere($id){
-        $query = "select article.title, article.content, article.keywords, article.author, category.category from `article` inner join category on article.category = category.ID_CATEGORY where ID_ARTICLE = $id";
+        $query = "select * from `article` inner join category on article.category = category.ID_CATEGORY where ID_ARTICLE = $id";
         $result = $this->query($query);
         return json_encode($result[0]);
     }

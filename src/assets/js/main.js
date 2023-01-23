@@ -313,6 +313,13 @@ const handleResult = (result, type) => {
       document.getElementById(`article_alert`).innerHTML = successAlert('The article has been deleted successfully!');
     break;
 
+    case 'edit':
+      document.getElementById("article-title-1").value = result.title;
+      document.getElementById("article-content-1").value = result.content;
+      document.getElementById("article-category-1").value = result.ID_CATEGORY;
+      document.getElementById("article-author-1").value = result.author;
+      document.getElementById("article-keywords-1").value = result.keywords;
+    break;
   }
 }
 
@@ -360,6 +367,24 @@ const deleteArticle = () => {
   formData.append('id', id);
   formData.append('type', 'delete');
   ajaxRequest(formData, 'delete');
+}
+
+const addBtn = () => {
+  document.getElementById("update-article").setAttribute("hidden", "");
+  document.getElementById("save-article").removeAttribute("hidden");
+}
+
+const updateBtn = () => {
+  document.getElementById("update-article").removeAttribute("hidden");
+  document.getElementById("save-article").setAttribute("hidden", "");
+  document.getElementById("add-field").setAttribute("hidden", "");
+  document.getElementById("remove-field").setAttribute("hidden", "");
+  
+  let id = document.getElementById("id_holder").value;
+  let formData = new FormData();
+  formData.append('id', id);
+  formData.append('type', 'where');
+  ajaxRequest(formData, 'edit');
 }
 
 showArticles();

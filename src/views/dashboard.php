@@ -35,7 +35,7 @@ if(!isset($_SESSION['id'])) header('location: /planet-dev/index.php');
           <li><a>Sort by date</a></li>
       </ul>
       </div>
-      <label for="add" class="btn btn-primary">add article</label>
+      <label for="add" class="btn btn-primary" onClick="addBtn()">add article</label>
   </div>
 
   <div id="article_alert"></div>
@@ -66,7 +66,7 @@ if(!isset($_SESSION['id'])) header('location: /planet-dev/index.php');
       <p class="py-4 font-bold">Category: <span class="font-normal" id="category"></span></p>
       <p class="py-4 font-bold">Keywords: <span class="font-normal" id="keywords"></span></p>
       <div class="float-right">
-        <button class="btn btn-outline btn-warning">Edit</button>
+        <label class="btn btn-outline btn-warning" onClick="updateBtn()" for="add">Edit</label>
         <button class="btn btn-outline btn-error" onClick="deleteArticle()">Delete</button>
       </div>
     </div>
@@ -112,6 +112,7 @@ if(!isset($_SESSION['id'])) header('location: /planet-dev/index.php');
         <button id="add-field" class="btn btn-outline my-1" onClick="addField()">Add field</button>
         <button id="remove-field" class="btn btn-outline btn-error my-1" onClick="removeField()" hidden>Remove field</button>
         <button id="save-article" class="btn btn-outline btn-success my-1" onClick="saveArticle()">Save</button>
+        <button id="update-article" class="btn btn-outline btn-success my-1" onClick="updateArticle()" hidden>Update</button>
       </div>
     </div>
   </div>
