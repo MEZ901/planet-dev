@@ -26,8 +26,8 @@ class admin {
         return json_encode($result);
     }
 
-    public function getAll(){
-        $query = "select ID_ARTICLE, title, date from article order by ID_ARTICLE desc";
+    public function getAll($orderBy = "ID_ARTICLE desc"){
+        $query = "select ID_ARTICLE, title, date from article order by $orderBy";
         $result = $this->query($query);
         return json_encode($result);
     }

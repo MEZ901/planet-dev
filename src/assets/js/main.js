@@ -392,9 +392,10 @@ const saveArticle = () => {
   ajaxRequest(formData, 'insert');
 }
 
-const showArticles = () => {
+const showArticles = (sort = null) => {
   let formData = new FormData();
   formData.append('type', 'show');
+  if(sort != null) formData.append('sort', sort);
   ajaxRequest(formData, 'show');
 }
 
@@ -485,6 +486,11 @@ const stat = () => {
   writer.append("table", "writer");
   writer.append("type", "stats");
   ajaxRequest(writer, 'writerStats');
+}
+
+const byName = () => {
+  let formData = new FormData();
+  formData.append("", "");
 }
 
 showArticles();

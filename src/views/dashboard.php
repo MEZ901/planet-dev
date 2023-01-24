@@ -31,8 +31,8 @@ if(!isset($_SESSION['id'])) header('location: /planet-dev/index.php');
       <div class="dropdown dropdown-hover">
       <label tabindex="0" class="btn btn-ghost m-1">Sort</label>
       <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-          <li><a>Sort by name</a></li>
-          <li><a>Sort by date</a></li>
+          <li onClick="showArticles('name')"><a>Sort by name</a></li>
+          <li onClick="showArticles()"><a>Sort by date</a></li>
       </ul>
       </div>
       <label for="add" class="btn btn-primary" onClick="addBtn()">add article</label>

@@ -34,7 +34,14 @@ if(count($_POST) > 0){
         break;
         case 'show':
             $admin = new admin;
-            $result = $admin->getAll();
+            if(isset($_POST['sort'])){
+                switch($_POST['sort']){
+                    case 'name':
+                        $result = $admin->getAll('title ASC');
+                    break;
+                }
+            }
+            else $result = $admin->getAll();
             echo $result;
         break;
         case 'where':
