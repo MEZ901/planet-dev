@@ -361,10 +361,9 @@ const fieldChecker = (e) => {
 }
 
 const saveArticle = () => {
-  let isValid = false;
+  let isValid = true;
   document.querySelectorAll(".article_field").forEach((field) => {
     if(!fieldChecker(field)) isValid = false;
-    else isValid = true;
   })
   if(isValid == false) return false;
   let formData = new FormData();
@@ -421,6 +420,11 @@ const updateBtn = () => {
 }
 
 const updateArticle = () => {
+  let isValid = true;
+  document.querySelectorAll(".article_field").forEach((field) => {
+    if(!fieldChecker(field)) isValid = false;
+  })
+  if(isValid == false) return false;
   let formData = new FormData();
   formData.append(`id`, document.querySelector(`#id_holder`).value);
   formData.append(`title`, document.querySelector(`#article-title-1`).value);
