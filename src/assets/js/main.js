@@ -290,6 +290,7 @@ const handleResult = (result, type) => {
       document.getElementById("close_modal").click();
       document.getElementById('article_alert').innerHTML = successAlert('The article has been added successfully!');
       showArticles();
+      stat();
     break;
 
     case 'show':
@@ -318,6 +319,7 @@ const handleResult = (result, type) => {
       document.getElementById(`close_details_modal`).click();
       document.getElementById(`article_${result}`).remove();
       document.getElementById(`article_alert`).innerHTML = successAlert('The article has been deleted successfully!');
+      stat();
     break;
 
     case 'edit':
