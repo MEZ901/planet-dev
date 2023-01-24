@@ -143,21 +143,21 @@ if(!isset($_SESSION['id'])) header('location: /planet-dev/index.php');
     <div class="stats shadow bg-neutral-900 flex justify-center m-5 text-center">
       <div class="stat">
         <div class="stat-title">Total Number Of Articles</div>
-        <div class="stat-value">5</div>
+        <div class="stat-value" id="articleStats"></div>
         <div class="stat-desc">Last Update <?= date("H:i") ?></div>
       </div>
     </div>
     <div class="stats shadow bg-neutral-900 flex justify-center m-5 text-center">
       <div class="stat">
         <div class="stat-title">Total Number Of Users</div>
-        <div class="stat-value">13</div>
+        <div class="stat-value" id="usersStats"></div>
         <div class="stat-desc">Last Update <?= date("H:i") ?></div>
       </div>
     </div>
     <div class="stats shadow bg-neutral-900 flex justify-center m-5 text-center">
       <div class="stat">
         <div class="stat-title">Total Number Of Writers</div>
-        <div class="stat-value">5</div>
+        <div class="stat-value" id="writersStats"></div>
         <div class="stat-desc">Last Update <?= date("H:i") ?></div>
       </div>
     </div>

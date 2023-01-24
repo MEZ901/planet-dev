@@ -53,6 +53,18 @@ class admin {
         $result = $this->query($query, $dataExecute);
         return json_encode($result);
     }
+
+    public function stats($table){
+        $query = "select * from $table";
+        $result = $this->query($query);
+        if(is_array($result)){
+            $count = count($result);
+        }else{
+            $count = 0;
+        }
+         
+        return json_encode($count);
+    }
 }
 
 ?>

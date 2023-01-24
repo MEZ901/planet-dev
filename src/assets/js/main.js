@@ -242,7 +242,7 @@ const ajaxRequest = (formData, type) => {
   })
     .then((response) => response.json())
     .then((result) => {
-      // console.log(result);
+      console.log(result);
       handleResult(result, type);
     })
 }
@@ -333,6 +333,18 @@ const handleResult = (result, type) => {
       document.getElementById(`close_details_modal`).click();
       document.getElementById('article_alert').innerHTML = successAlert('The article has been updated successfully!');
       showArticles();
+    break;
+
+    case 'articleStats':
+      document.getElementById('articleStats').innerHTML = result;
+    break;
+
+    case 'userStats':
+      document.getElementById('usersStats').innerHTML = result;
+    break;
+
+    case 'writerStats':
+      document.getElementById('writersStats').innerHTML = result;
     break;
   }
 }
@@ -456,4 +468,22 @@ const search = () => {
   }
 }
 
+const stat = () => {
+  let article = new FormData();
+  article.append("table", "article");
+  article.append("type", "stats");
+  ajaxRequest(article, 'articleStats');
+  
+  let user = new FormData();
+  user.append("table", "user");
+  user.append("type", "stats");
+  ajaxRequest(user, 'userStats');
+
+  let writer = new FormData();
+  writer.append("table", "writer");
+  writer.append("type", "stats");
+  ajaxRequest(writer, 'writerStats');
+}
+
 showArticles();
+stat();

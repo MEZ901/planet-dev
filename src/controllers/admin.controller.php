@@ -61,6 +61,11 @@ if(count($_POST) > 0){
             $result = $admin->updateArticle($data);
             echo $result;
         break;
+        case 'stats':
+            $admin = new admin;
+            $result = $admin->stats($_POST['table']);
+            echo $result;
+        break;
     }
 }
 
