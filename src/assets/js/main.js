@@ -156,40 +156,40 @@ const dashboard = () => {
 const addField = () => {
   articleCount ++;
   let articleForm = `
-      <form id="add-article-${articleCount}" class="space-y-4 md:space-y-6 py-5 border-b" action="#">
-          <h2 class="text-center text-lg font-semibold">Article ${articleCount}</h2>
-          <div>
-              <label for="article-title-${articleCount}" class="block mb-2 text-sm font-medium text-white">Title <span class=" text-red-600">*</span></label>
-              <input type="text" onkeyup="fieldChecker(this)" name="article-title-${articleCount}" id="article-title-${articleCount}" class="article_field border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="Title" required="">
-              <label for="article-title-${articleCount}" class="mt-1 text-xs font-light text-red-600" hidden>This field can not be empty</label>
-          </div>
-          <div>
-              <label for="article-content-${articleCount}" class="block mb-2 text-sm font-medium text-white">Content <span class=" text-red-600">*</span></label>
-              <textarea name="article-content-${articleCount}" onkeyup="fieldChecker(this)" id="article-content-${articleCount}" class="article_field border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" required=""></textarea>
-              <label for="article-content-${articleCount}" class="mt-1 text-xs font-light text-red-600" hidden>This field can not be empty</label>
-          </div>
-          <div>
-          <label for="article-category-${articleCount}" class="block mb-2 text-sm font-medium text-white">Category <span class=" text-red-600">*</span></label>
-          <select name="article-category-${articleCount}" onChange="fieldChecker(this)" id="article-category-${articleCount}" class="article_field select select-bordered w-full">
-            <option disabled value=""0 selected>Category</option>
-            <option value="1">Web Development</option>
-            <option value="2">Mobile Development</option>
-            <option value="3">Artificial Intelligence</option>
-            <option value="4">Cyber Security</option>
-            <option value="5">DevOps</option>
-          </select>
-          <label for="article-category-${articleCount}" class="mt-1 text-xs font-light text-red-600" hidden>This field can not be empty</label>
-          </div>
-          <div>
-              <label for="article-author-${articleCount}" class="block mb-2 text-sm font-medium text-white">Author <span class=" text-red-600">*</span></label>
-              <input type="text" name="article-author-${articleCount}" onkeyup="fieldChecker(this)" id="article-author-${articleCount}" class="article_field border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="author">
-              <label for="article-author-${articleCount}" class="mt-1 text-xs font-light text-red-600" hidden>This field can not be empty</label>
-          </div>
-          <div>
-              <label for="article-keywords-${articleCount}" class="block mb-2 text-sm font-medium text-white">Keywords</label>
-              <input type="text" name="article-keywords-${articleCount}" id="article-keywords-${articleCount}" class="border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="Keywords separate by space">
-          </div>
-      </form>
+    <form id="add-article-${articleCount}" class="space-y-4 md:space-y-6 py-5 border-b" action="#">
+        <h2 class="text-center text-lg font-semibold">Article ${articleCount}</h2>
+        <div>
+            <label for="article-title-${articleCount}" class="block mb-2 text-sm font-medium text-white">Title <span class=" text-red-600">*</span></label>
+            <input type="text" onkeyup="fieldChecker(this)" name="article-title-${articleCount}" id="article-title-${articleCount}" class="article_field border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="Title" required="">
+            <label for="article-title-${articleCount}" class="mt-1 text-xs font-light text-red-600" hidden>This field can not be empty</label>
+        </div>
+        <div>
+            <label for="article-content-${articleCount}" class="block mb-2 text-sm font-medium text-white">Content <span class=" text-red-600">*</span></label>
+            <textarea name="article-content-${articleCount}" onkeyup="fieldChecker(this)" id="article-content-${articleCount}" class="article_field border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" required=""></textarea>
+            <label for="article-content-${articleCount}" class="mt-1 text-xs font-light text-red-600" hidden>This field can not be empty</label>
+        </div>
+        <div>
+        <label for="article-category-${articleCount}" class="block mb-2 text-sm font-medium text-white">Category <span class=" text-red-600">*</span></label>
+        <select name="article-category-${articleCount}" onChange="fieldChecker(this)" id="article-category-${articleCount}" class="article_field select select-bordered w-full">
+          <option disabled value=""0 selected>Category</option>
+          <option value="1">Web Development</option>
+          <option value="2">Mobile Development</option>
+          <option value="3">Artificial Intelligence</option>
+          <option value="4">Cyber Security</option>
+          <option value="5">DevOps</option>
+        </select>
+        <label for="article-category-${articleCount}" class="mt-1 text-xs font-light text-red-600" hidden>This field can not be empty</label>
+        </div>
+        <div>
+            <label for="article-author-${articleCount}" class="block mb-2 text-sm font-medium text-white">Author <span class=" text-red-600">*</span></label>
+            <input type="text" name="article-author-${articleCount}" onkeyup="fieldChecker(this)" id="article-author-${articleCount}" class="article_field border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="author">
+            <label for="article-author-${articleCount}" class="mt-1 text-xs font-light text-red-600" hidden>This field can not be empty</label>
+        </div>
+        <div>
+            <label for="article-keywords-${articleCount}" class="block mb-2 text-sm font-medium text-white">Keywords</label>
+            <input type="text" name="article-keywords-${articleCount}" id="article-keywords-${articleCount}" class="border sm:text-sm rounded-lg  block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="Keywords separate by space">
+        </div>
+    </form>
   `;
   document.getElementById('article').innerHTML += articleForm;
   document.getElementById('remove-field').removeAttribute('hidden');
@@ -242,7 +242,7 @@ const ajaxRequest = (formData, type) => {
   })
     .then((response) => response.json())
     .then((result) => {
-      console.log(result);
+      // console.log(result);
       handleResult(result, type);
     })
 }
